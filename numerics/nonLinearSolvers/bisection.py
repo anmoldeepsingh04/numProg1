@@ -1,11 +1,11 @@
 from .base import BaseRootFinder
 
 class BisectionSolver(BaseRootFinder):
-    def __init__(self, f, a, b, tol = 1e-6, max_iter = 100, method = "Bisection Method"):
+    def __init__(self, f, a, b, tol = 1e-6, max_iter = 100 ):
         super().__init__(f, tol, max_iter)
         self.a = a
         self.b = b
-        self.method = method
+        self.method = "Bisection Method"
 
     def solve(self):
         a, b = self.a, self.b
