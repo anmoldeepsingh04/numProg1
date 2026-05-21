@@ -1,8 +1,11 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-from numprog1.ui.components.sidebar import parse_function
+
+try:
+    from ..methods.nonlinear import BisectionSolver, SecantSolver, RegulaFalsiSolver
+except ImportError:
+    from numprog1.methods.nonlinear import BisectionSolver, SecantSolver, RegulaFalsiSolver
 
 
 def render_visualization(config):

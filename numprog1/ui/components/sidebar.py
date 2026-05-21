@@ -3,7 +3,7 @@ import sympy as sp
 import numpy as np
 
 
-def parse_function(expr_str):
+def _parse_function(expr_str):
     """Parse mathematical expression with symbolic and numerical capabilities."""
     x = sp.Symbol('x')
     expr = sp.sympify(expr_str)
@@ -13,7 +13,7 @@ def parse_function(expr_str):
         ['numpy', {
             'sin': np.sin, 'cos': np.cos, 'tan': np.tan,
             'exp': np.exp, 'log': np.log, 'log10': np.log10,
-            'sqrt': np.sqrt, 'abs': np.abs, 'factorial': np.math.factorial,
+            'sqrt': np.sqrt, 'abs': np.abs,
             'floor': np.floor, 'ceil': np.ceil,
             'pi': np.pi, 'e': np.e
         }]
@@ -107,7 +107,7 @@ def render_sidebar():
     submit = st.sidebar.button("Solve", type="primary")
     
     try:
-        func_data = parse_function(func_str)
+        func_data = _parse_function(func_str)
     except Exception as e:
         st.sidebar.error(f"Invalid function: {e}")
         func_data = None

@@ -1,5 +1,10 @@
 import streamlit as st
 
+try:
+    from ..methods.nonlinear import BisectionSolver, SecantSolver, RegulaFalsiSolver
+except ImportError:
+    from numprog1.methods.nonlinear import BisectionSolver, SecantSolver, RegulaFalsiSolver
+
 
 def render_results(config):
     """Render results display component."""

@@ -1,7 +1,13 @@
 import streamlit as st
-from numprog1.ui.components.sidebar import render_sidebar
-from numprog1.ui.components.plots import render_visualization
-from numprog1.ui.components.results import render_results
+
+try:
+    from .components.sidebar import render_sidebar
+    from .components.plots import render_visualization
+    from .components.results import render_results
+except ImportError:
+    from numprog1.ui.components.sidebar import render_sidebar
+    from numprog1.ui.components.plots import render_visualization
+    from numprog1.ui.components.results import render_results
 
 
 def main():
